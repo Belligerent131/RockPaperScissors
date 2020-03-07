@@ -19,14 +19,14 @@ namespace RockPaperScissors
             Console.Clear();
             Console.WriteLine($"Make a choice by typing the number associated to your choice:\n1 -> Rock (Defaulted)\n2 -> Paper\n3 -> Scissors\n");
 
-            player.MChoice = PlayerChoice(Console.ReadKey().Key);
+            player.Choice = PlayerChoice(Console.ReadKey().Key);
 
-            Console.WriteLine(player.MChoice);
+            Console.WriteLine(player.Choice);
 
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine($"You chose {player.MChoice}, are you sure? (1 - yes / 2 - no)");
+                Console.WriteLine($"You chose {player.Choice}, are you sure? (1 - yes / 2 - no)");
                 if (Console.ReadKey().Key == ConsoleKey.D1)
                 {
                     opponent.RandomizeChoice();
@@ -34,9 +34,9 @@ namespace RockPaperScissors
                     Task.Delay(300);
 
                     Console.Clear();
-                    Console.WriteLine($"You: { player.MChoice }");
+                    Console.WriteLine($"You: { player.Choice }");
                     Console.WriteLine($"--------------------");
-                    Console.WriteLine($"Opponent: { opponent.MChoice }\n");
+                    Console.WriteLine($"Opponent: { opponent.Choice }\n");
 
                     CompareChoices(player, opponent);
 
@@ -55,6 +55,7 @@ namespace RockPaperScissors
                         else if(Console.ReadKey().Key == ConsoleKey.D2)
                         {
                             Environment.Exit(0);
+
                         }
                     }
                 }
@@ -102,51 +103,51 @@ namespace RockPaperScissors
         {
             
             //Player wins with Rock > Scissors
-            if (player.MChoice == Choices.Rock && opponent.MChoice == Choices.Scissors)
+            if (player.Choice == Choices.Rock && opponent.Choice == Choices.Scissors)
             {
-                Console.WriteLine($"Your { player.MChoice} beat your Opponent's { opponent.MChoice }!" );
+                Console.WriteLine($"Your { player.Choice} beat your Opponent's { opponent.Choice }!" );
                 UpdateScores(player, opponent, true);
             }
 
             //Player wins Paper > Rock
-            else if (player.MChoice == Choices.Paper && opponent.MChoice == Choices.Rock)
+            else if (player.Choice == Choices.Paper && opponent.Choice == Choices.Rock)
             {
-                Console.WriteLine($"Your { player.MChoice} beat your Opponent's { opponent.MChoice }!");
+                Console.WriteLine($"Your { player.Choice} beat your Opponent's { opponent.Choice }!");
                 UpdateScores(player, opponent, true);
             }
 
             //Player wins Scissors > Paper
-            else if (player.MChoice == Choices.Scissors && opponent.MChoice == Choices.Paper)
+            else if (player.Choice == Choices.Scissors && opponent.Choice == Choices.Paper)
             {
-                Console.WriteLine($"Your { player.MChoice} beat your Opponent's { opponent.MChoice }!");
+                Console.WriteLine($"Your { player.Choice} beat your Opponent's { opponent.Choice }!");
                 UpdateScores(player, opponent, true);
             }
 
             //Computer wins Rock > Scissors
-            else if (opponent.MChoice == Choices.Rock && player.MChoice == Choices.Scissors)
+            else if (opponent.Choice == Choices.Rock && player.Choice == Choices.Scissors)
             {
-                Console.WriteLine($"Your Opponent's { opponent.MChoice } beat your { player.MChoice }");
+                Console.WriteLine($"Your Opponent's { opponent.Choice } beat your { player.Choice }");
                 UpdateScores(player, opponent, false);
             }
 
             //Computer wins Paper > Rock
-            else if (opponent.MChoice == Choices.Paper && player.MChoice == Choices.Rock)
+            else if (opponent.Choice == Choices.Paper && player.Choice == Choices.Rock)
             {
-                Console.WriteLine($"Your Opponent's { opponent.MChoice } beat your { player.MChoice }");
+                Console.WriteLine($"Your Opponent's { opponent.Choice } beat your { player.Choice }");
                 UpdateScores(player, opponent, false);
             }
 
             //Computer wins Scissors > Paper
-            else if (opponent.MChoice == Choices.Scissors && player.MChoice == Choices.Paper)
+            else if (opponent.Choice == Choices.Scissors && player.Choice == Choices.Paper)
             {
-                Console.WriteLine($"Your Opponent's { opponent.MChoice } beat your { player.MChoice }");
+                Console.WriteLine($"Your Opponent's { opponent.Choice } beat your { player.Choice }");
                 UpdateScores(player, opponent, false);
             }
 
             //Player and opponent Tie
             else
             {
-                Console.WriteLine($"You and your Opponent chose {player.MChoice}, resulting in a tie!");
+                Console.WriteLine($"You and your Opponent chose {player.Choice}, resulting in a tie!");
             }
         }
 

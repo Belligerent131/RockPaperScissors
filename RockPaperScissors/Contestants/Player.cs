@@ -20,7 +20,7 @@ namespace RockPaperScissors
         {
             Wins = 0;
             Losses = 0;
-            MChoice = Choices.none;
+            Choice = Choices.none;
         }
     }
 }

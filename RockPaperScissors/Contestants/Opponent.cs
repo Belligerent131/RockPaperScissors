@@ -40,7 +40,7 @@ namespace RockPaperScissors
                     _choice = Choices.Scissors;
                     break;
             }        
-            this.MChoice = _choice;
+            this.Choice = _choice;
         }
     }
 }
